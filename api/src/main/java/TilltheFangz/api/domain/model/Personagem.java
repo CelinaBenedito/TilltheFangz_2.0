@@ -39,6 +39,9 @@ public class Personagem {
     }
 
     public void setId(UUID id) {
+        if (id == null) {
+            throw new EntidadeInvalidaException("ID não pode ser nulo");
+        }
         this.id = id;
     }
 
@@ -47,6 +50,9 @@ public class Personagem {
     }
 
     public void setUsuario(Usuario usuario) {
+        if (usuario == null) {
+            throw new EntidadeInvalidaException("O personagem deve estar vinculado a um usuário");
+        }
         this.usuario = usuario;
     }
 

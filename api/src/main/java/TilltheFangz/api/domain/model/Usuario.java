@@ -4,8 +4,12 @@ import TilltheFangz.api.domain.exception.EntidadeInvalidaException;
 import TilltheFangz.api.domain.exception.EntidadeInativaException;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
-
+/**
+* Classe que define o necessário para o usuario principal do sistema do TILL THE FANGZ
+* */
 public class Usuario {
     private UUID id;
     private String nome;
@@ -16,11 +20,13 @@ public class Usuario {
     private Genero genero;
     private LocalDate dataNascimento;
     private Boolean ativo;
+    private String senha;
+    private List<Personagem> personagens = new ArrayList<>();
 
     public Usuario() {
     }
 
-    public Usuario(UUID id, String nome, String sobrenome, String nickname, String email, String celular, Genero genero, LocalDate dataNascimento, Boolean ativo) {
+    public Usuario(UUID id, String nome, String sobrenome, String nickname, String email, String celular, Genero genero, LocalDate dataNascimento, Boolean ativo, String senha) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -30,73 +36,18 @@ public class Usuario {
         this.genero = genero;
         this.dataNascimento = dataNascimento;
         this.ativo = ativo;
+        this.senha = senha;
     }
-    private void validarNome(String nome) {
-        if (nome == null || nome.isEmpty()) {
-            throw new EntidadeInvalidaException("Nome não pode ser nulo ou vazio");
-        }
-    }
-
-    private void validarSobrenome(String sobrenome) {
-        if (sobrenome == null || sobrenome.isEmpty()) {
-            throw new EntidadeInvalidaException("Sobrenome não pode ser nulo ou vazio");
-        }
+    public void adicionarPersonagem(Personagem personagem) {
+        this.personagens.add(personagem);
+        personagem.setUsuario(this);
     }
 
-    private void validarEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            throw new EntidadeInvalidaException("Email não pode ser nulo ou vazio");
-        }
-    }
-
-    private void validarGenero(Genero genero) {
-        if (genero == null) {
-            throw new EntidadeInvalidaException("Gênero não pode ser nulo");
-        }
-        if (genero != Genero.Mulher_cis &&
-                genero != Genero.Mulher_trans &&
-                genero != Genero.Homem_cis &&
-                genero != Genero.Homem_trans &&
-                genero != Genero.NaoBinario &&
-                genero != Genero.GeneroFluido &&
-                genero != Genero.Outro) {
-            throw new EntidadeInvalidaException("Gênero não está em conformidade com os registrados");
-        }
-    }
-
-    private void isAtivo(Boolean ativo) {
+    private boolean isAtivo(Boolean ativo) {
         if (ativo == null) {
             throw new EntidadeInvalidaException("Ativo não pode ser nulo");
         }
-        if (!ativo) {
-            throw new EntidadeInativaException("Usuário inativo");
-        }
-    }
-
-    private void validarCelular(String celular) {
-        if (celular == null || celular.isEmpty()) {
-            throw new EntidadeInvalidaException("Celular não pode ser nulo ou vazio");
-        }
-        for (char c : celular.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                throw new EntidadeInvalidaException("Celular deve conter apenas números");
-            }
-        }
-        int qtdChar = 0;
-        for (int i =0; celular.length()>i; i++){
-             qtdChar +=1;
-        }
-
-        if (qtdChar > 11) {
-            throw new EntidadeInvalidaException("Celular deve conter no máximo 11 dígitos");
-        }
-
-    }
-
-    private void validarDataNascimento(LocalDate dataNascimento) {
-        if (dataNascimento == null ||  dataNascimento.isBefore(LocalDate.now())) {
-            throw new EntidadeInvalidaException("Data de nascimento não pode ser nula ou anterior a data atual");
-        }
+        return ativo;
     }
 
     public UUID getId() {
@@ -104,6 +55,9 @@ public class Usuario {
     }
 
     public void setId(UUID id) {
+        if (id == null) {
+            throw new EntidadeInvalidaException("ID não pode ser nulo");
+        }
         this.id = id;
     }
 
@@ -165,13 +119,18 @@ public class Usuario {
         if (celular == null || celular.isEmpty()) {
             throw new EntidadeInvalidaException("Celular não pode ser nulo ou vazio");
         }
-        else if (celular.length() > 11) {
-            throw new EntidadeInvalidaException("Celular não pode ter mais de 11 caracteres");
-        }
         for (char c : celular.toCharArray()) {
             if (!Character.isDigit(c)) {
                 throw new EntidadeInvalidaException("Celular deve conter apenas números");
             }
+        }
+        int qtdChar = 0;
+        for (int i =0; celular.length()>i; i++){
+            qtdChar +=1;
+        }
+
+        if (qtdChar > 11) {
+            throw new EntidadeInvalidaException("Celular deve conter no máximo 11 dígitos");
         }
         this.celular = celular;
     }
@@ -216,5 +175,24 @@ public class Usuario {
             throw new IllegalArgumentException("Ativo não pode ser nulo");
         }
         this.ativo = ativo;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        if (senha == null || senha.isEmpty()) {
+            throw new EntidadeInvalidaException("Senha não pode ser nula ou vazia");
+        }
+        this.senha = senha;
+    }
+
+    public List<Personagem> getPersonagens() {
+        return personagens;
+    }
+
+    public void setPersonagens(List<Personagem> personagens) {
+        this.personagens = personagens;
     }
 }

@@ -1,8 +1,8 @@
-package TilltheFangz.api.domain.model;
+package TilltheFangz.api.domain.model.enums;
 
 public enum Classe {
     Cacador,
-    Senhor_das_Sombras,
+    SenhorDasSombras,
     Barbaro,
     Ilusionista,
     Cultista,

@@ -1,6 +1,6 @@
 package TilltheFangz.api.adapters.output.persistence.entity;
 
-import TilltheFangz.api.domain.model.Genero;
+import TilltheFangz.api.domain.model.enums.Genero;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.lang.annotation.Before;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -1,21 +1,25 @@
-package TilltheFangz.api.domain.model;
+package TilltheFangz.api.domain.model.jogabilidade;
 
 import TilltheFangz.api.domain.exception.EntidadeInvalidaException;
+import TilltheFangz.api.domain.model.enums.Classe;
+import TilltheFangz.api.domain.model.enums.Genero;
+import TilltheFangz.api.domain.model.enums.Raca;
+import TilltheFangz.api.domain.model.Usuario;
 
 import java.util.UUID;
 
 public class Personagem {
-    UUID id;
-    Usuario usuario;
-    String nome;
-    String apelido;
-    Integer idade;
-    Double peso;
-    Genero genero;
-    Raca raca;
-    Classe classe;
-    String historia;
-    String caracteristicas;
+    private UUID id;
+    private Usuario usuario;
+    private String nome;
+    private String apelido;
+    private Integer idade;
+    private Double peso;
+    private Genero genero;
+    private Raca raca;
+    private Classe classe;
+    private String historia;
+    private String caracteristicas;
 
     public Personagem(UUID id, Usuario usuario, String nome, String apelido, Integer idade, Double peso, Genero genero, Raca raca, Classe classe, String historia, String caracteristicas) {
         this.id = id;
@@ -137,7 +141,7 @@ public class Personagem {
 
     public void setClasse(Classe classe) {
         if (classe != Classe.Cacador
-                && classe != Classe.Senhor_das_Sombras
+                && classe != Classe.SenhorDasSombras
                 && classe != Classe.Barbaro
                 && classe != Classe.Ilusionista
                 && classe != Classe.Cultista

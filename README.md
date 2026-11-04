@@ -18,3 +18,5 @@ O projeto possui as seguintes funcionalidades:
 - Criação de personagens
 - Listagem de personagens
 - Edição e exclusão de personagens
+- Criação de itens
+- Listagem de itens

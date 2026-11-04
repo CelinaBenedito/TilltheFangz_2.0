@@ -1,17 +1,17 @@
-package TilltheFangz.api.domain.model;
+package TilltheFangz.api.domain.model.jogabilidade;
 
 import TilltheFangz.api.domain.exception.ValorInvalidoParaPontuacaoException;
 
 public class Pontos {
-    Personagem personagem;
-    int vida;
-    int defesa;
-    int sanidade;
-    int carisma;
-    int inteligencia;
-    int agilidade;
-    int vigor;
-    int sangueAncestral;
+    private Personagem personagem;
+    private int vida;
+    private int defesa;
+    private int sanidade;
+    private int carisma;
+    private int inteligencia;
+    private int agilidade;
+    private int vigor;
+    private int sangueAncestral;
 
     public Pontos(Personagem personagem, int vida, int defesa, int sanidade, int carisma, int inteligencia, int agilidade, int vigor, int sangueAncestral) {
         this.personagem = personagem;

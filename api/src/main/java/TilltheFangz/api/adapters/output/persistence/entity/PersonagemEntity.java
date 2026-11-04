@@ -1,8 +1,8 @@
 package TilltheFangz.api.adapters.output.persistence.entity;
 
-import TilltheFangz.api.domain.model.Classe;
-import TilltheFangz.api.domain.model.Genero;
-import TilltheFangz.api.domain.model.Raca;
+import TilltheFangz.api.domain.model.enums.Classe;
+import TilltheFangz.api.domain.model.enums.Genero;
+import TilltheFangz.api.domain.model.enums.Raca;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package TilltheFangz.api.domain.model;
+package TilltheFangz.api.domain.model.enums;
 
 public enum Genero {
     Mulher_cis,

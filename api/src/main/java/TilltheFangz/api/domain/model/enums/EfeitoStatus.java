@@ -1,0 +1,26 @@
+package TilltheFangz.api.domain.model.enums;
+
+public enum EfeitoStatus {
+    ENVENENADO,
+    PARALISADO,
+    QUEIMANDO,
+    CONGELADO,
+    SONOLENTO,
+    CONFUSO,
+    AMEDRONTADO,
+    CURADO,
+    SANGRANDO,
+    ATORDOADO,
+    CEGO,
+    SILENCIADO,
+    IMUNE,
+    REGENERANDO,
+    FORTIFICADO,
+    DESACELERADO,
+    ENFRAQUECIDO,
+    PROTEGIDO,
+    VULNERAVEL,
+    INVISIVEL,
+    DESARMADO,
+    DRENAGEM
+}

@@ -1,7 +1,8 @@
 package TilltheFangz.api.domain.model;
 
 import TilltheFangz.api.domain.exception.EntidadeInvalidaException;
-import TilltheFangz.api.domain.exception.EntidadeInativaException;
+import TilltheFangz.api.domain.model.enums.Genero;
+import TilltheFangz.api.domain.model.jogabilidade.Personagem;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

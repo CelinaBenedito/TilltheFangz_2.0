@@ -1,6 +1,6 @@
 package TilltheFangz.api.application.port.out;
 
-import TilltheFangz.api.domain.model.Personagem;
+import TilltheFangz.api.domain.model.jogabilidade.Personagem;
 import TilltheFangz.api.domain.model.Usuario;
 
 import java.util.List;

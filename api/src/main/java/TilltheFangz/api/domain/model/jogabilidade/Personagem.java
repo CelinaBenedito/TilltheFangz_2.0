@@ -20,8 +20,22 @@ public class Personagem {
     private Classe classe;
     private String historia;
     private String caracteristicas;
+    private Inventario inventario;
+    private String imagem;
 
-    public Personagem(UUID id, Usuario usuario, String nome, String apelido, Integer idade, Double peso, Genero genero, Raca raca, Classe classe, String historia, String caracteristicas) {
+    public Personagem(UUID id,
+                      Usuario usuario,
+                      String nome,
+                      String apelido,
+                      Integer idade,
+                      Double peso,
+                      Genero genero,
+                      Raca raca,
+                      Classe classe,
+                      String historia,
+                      String caracteristicas,
+                      Inventario inventario,
+                      String imagem) {
         this.id = id;
         this.usuario = usuario;
         this.nome = nome;
@@ -32,7 +46,9 @@ public class Personagem {
         this.raca = raca;
         this.classe = classe;
         this.historia = historia;
+        this.imagem = imagem;
         this.caracteristicas = caracteristicas;
+        this.inventario = inventario;
     }
 
     public Personagem() {
@@ -112,14 +128,26 @@ public class Personagem {
         if (genero == null) {
             throw new EntidadeInvalidaException("Gênero não pode ser nulo");
         }
-        if (genero != Genero.Mulher_cis &&
-                genero != Genero.Mulher_trans &&
-                genero != Genero.Homem_cis &&
-                genero != Genero.Homem_trans &&
-                genero != Genero.NaoBinario &&
-                genero != Genero.GeneroFluido &&
-                genero != Genero.Outro) {
-            throw new EntidadeInvalidaException("Gênero não está em conformidade com os registrados");
+        if (genero != Genero.MULHER_CIS &&
+                genero != Genero.MULHER_TRANS &&
+                genero != Genero.HOMEM_CIS &&
+                genero != Genero.HOMEM_TRANS &&
+                genero != Genero.NAO_BINARIO &&
+                genero != Genero.GENERO_FLUIDO &&
+                genero != Genero.AGENERO &&
+                genero != Genero.BIGENERO &&
+                genero != Genero.DEMIGENERO &&
+                genero != Genero.DEMIMULHER &&
+                genero != Genero.DEMIHOMEM &&
+                genero != Genero.PANGENERO &&
+                genero != Genero.GENERO_QUEER &&
+                genero != Genero.ANDROGINO &&
+                genero != Genero.OUTRO &&
+                genero != Genero.PREFERE_NAO_INFORMAR) {
+
+            throw new EntidadeInvalidaException(
+                    "Gênero não está em conformidade com os registrados"
+            );
         }
         this.genero = genero;
     }
@@ -174,5 +202,21 @@ public class Personagem {
             throw new EntidadeInvalidaException("Características não podem ser nulas, vazias, 'null' ou maiores que 150 caracteres");
         }
         this.caracteristicas = caracteristicas;
+    }
+
+    public Inventario getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(Inventario inventario) {
+        this.inventario = inventario;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 }

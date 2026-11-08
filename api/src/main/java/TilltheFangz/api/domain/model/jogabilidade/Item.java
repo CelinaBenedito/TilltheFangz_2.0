@@ -1,6 +1,6 @@
 package TilltheFangz.api.domain.model.jogabilidade;
 
-import TilltheFangz.api.domain.model.enums.Elemento;
+import TilltheFangz.api.domain.model.enums.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,8 +10,17 @@ public class Item {
     private String nome;
     private String descricao;
     private Double peso;
-    private Elemento elemento;
+    private Integer quantidade;
     private Double nivel;
-    private String imagem;
+    private TipoUso  tipoUso;
+    private Elemento elemento;
     private List<Ataque> ataques;
+    private TipoDano tipoDano;
+    private Integer valorBaseDano;
+    private EfeitoStatus efeitoStatus;
+    private TipoEfeito tipoEfeito;
+    private Integer valorBaseEfeito;
+    private Integer qtdDados;
+    private Integer valorDado;
+    private String imagem;
 }

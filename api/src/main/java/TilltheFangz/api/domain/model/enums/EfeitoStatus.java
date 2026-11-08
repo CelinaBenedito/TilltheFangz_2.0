@@ -22,5 +22,6 @@ public enum EfeitoStatus {
     VULNERAVEL,
     INVISIVEL,
     DESARMADO,
-    DRENAGEM
+    DRENAGEM,
+    NENHUM
 }

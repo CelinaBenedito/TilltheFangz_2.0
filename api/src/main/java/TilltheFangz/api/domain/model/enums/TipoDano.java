@@ -12,5 +12,6 @@ public enum TipoDano {
     IMPACTO,
     MALDICAO,
     MAGICO,
-    CORRUPCAO
+    CORRUPCAO,
+    NENHUM
 }
